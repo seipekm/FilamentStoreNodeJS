@@ -11,7 +11,7 @@ var index = require('./routes/index');
 var config = require('./config.json');
 var app = express();
 
-var PORT = 3500;
+var PORT = 3000;
 
 function REST() {
     var self = this;
