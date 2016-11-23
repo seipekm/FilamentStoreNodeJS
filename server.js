@@ -8,9 +8,10 @@ var bodyParser = require('body-parser');
 var md5 = require('MD5');
 var rest = require('./routes/rest');
 var index = require('./routes/index');
+var config = require('./config.json');
 var app = express();
 
-var PORT = 3000;
+var PORT = 3500;
 
 function REST() {
     var self = this;
@@ -22,10 +23,10 @@ REST.prototype.connectMysql = function () {
 
     var pool = mysql.createPool({
         connectionLimit : 100,
-        host     : '*******',
-        user     : '*******',
-        password : '*******',
-        database : '*******',
+        host     : config.mysql.connection,
+        user     : config.mysql.username,
+        password : config.mysql.password,
+        database : config.mysql.db_name,
         debug    :  false
     });
 
