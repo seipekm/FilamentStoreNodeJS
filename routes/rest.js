@@ -78,6 +78,19 @@ REST_ROUTER.prototype.handleRoutes= function(router,connection,md5) {
         });
     });
 
+    router.get("/filament/types",function(req,res){
+        var query = "SELECT * FROM ??";
+        var table = ["type_info"];
+        query = mysql.format(query,table);
+        connection.query(query,function(err,rows){
+            if(err) {
+                res.json({"Error" : true, "Message" : "Error executing MySQL query"});
+            } else {
+                res.json({"Error" : false, "Message" : "Success", "Types" : rows});
+            }
+        });
+    });
+
     router.post("/filament/type/add",function(req,res){
         var query = "INSERT INTO ??(??) VALUES (?)";
         var table = ["type_info","type_name",req.body.type];
@@ -91,6 +104,19 @@ REST_ROUTER.prototype.handleRoutes= function(router,connection,md5) {
         });
     });
 
+    router.get("/filament/producers",function(req,res){
+        var query = "SELECT * FROM ??";
+        var table = ["producer_info"];
+        query = mysql.format(query,table);
+        connection.query(query,function(err,rows){
+            if(err) {
+                res.json({"Error" : true, "Message" : "Error executing MySQL query"});
+            } else {
+                res.json({"Error" : false, "Message" : "Success", "producers" : rows});
+            }
+        });
+    });
+
     router.post("/filament/producer/add",function(req,res){
         var query = "INSERT INTO ??(??) VALUES (?)";
         var table = ["producer_info","producer_name",req.body.producer_name];
@@ -100,6 +126,19 @@ REST_ROUTER.prototype.handleRoutes= function(router,connection,md5) {
                 res.json({"Error" : true, "Message" : "Error executing MySQL query"});
             } else {
                 res.json({"Error" : false, "Message" : "Producer Added !"});
+            }
+        });
+    });
+
+    router.get("/filament/products",function(req,res){
+        var query = "SELECT * FROM ??";
+        var table = ["producer_product"];
+        query = mysql.format(query,table);
+        connection.query(query,function(err,rows){
+            if(err) {
+                res.json({"Error" : true, "Message" : "Error executing MySQL query"});
+            } else {
+                res.json({"Error" : false, "Message" : "Success", "producers" : rows});
             }
         });
     });
