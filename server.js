@@ -22,10 +22,10 @@ REST.prototype.connectMysql = function () {
 
     var pool = mysql.createPool({
         connectionLimit : 100,
-        host     : 'msipek.lima-db.de',
-        user     : 'USER345765',
-        password : 'YQ7sKVgbD',
-        database : 'db_345765_7',
+        host     : '*******',
+        user     : '*******',
+        password : '*******',
+        database : '*******',
         debug    :  false
     });
 
